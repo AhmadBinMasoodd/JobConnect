@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:jobconnect_app/main.dart';
+import 'package:jobconnect_app/my_app.dart';
 
 void main() {
   testWidgets('App shell builds', (WidgetTester tester) async {

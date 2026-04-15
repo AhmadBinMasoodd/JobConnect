@@ -4,17 +4,11 @@ import 'package:flutter/material.dart';
 class UColors {
   UColors._();
 
-  static const Color primaryGradientStart = Color(0xFF312C51);
-  static const Color primaryGradientEnd = Color(0xFF48426D);
+  static const Color primaryColor = Color(0xFF312C51);
+  static const Color primaryColorDark = Color(0xFF48426D);
 
-  static const Color successGradientStart = Color(0xFFF0C38E);
-  static const Color successGradientEnd = Color(0xFFF1AA9B);
-
-  static const Color primaryColor = primaryGradientStart;
-  static const Color primaryColorDark = primaryGradientEnd;
-
-  static const Color secondaryColor = successGradientStart;
-  static const Color secondaryColorDark = successGradientEnd;
+  static const Color secondaryColor = Color(0xFFF0C38E);
+  static const Color secondaryColorDark = Color(0xFFF1AA9B);
 
   static const Color white=Color(0xFFFFFFFF);
   static const Color black=Color(0xFF000000);

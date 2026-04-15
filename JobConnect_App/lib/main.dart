@@ -1,35 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:jobconnect_app/core/constant/text.dart';
+import 'package:flutter/services.dart';
+import 'package:jobconnect_app/my_app.dart';
 
-import 'core/theme/theme.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: UText.appName,
-      theme: UAppTheme.lightTheme,
-      home: const _AppHome(),
-    );
-  }
-}
-
-class _AppHome extends StatelessWidget {
-  const _AppHome();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Welcome to JobConnect!'),
-      ),
-    );
-  }
-}

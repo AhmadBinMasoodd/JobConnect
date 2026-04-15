@@ -27,8 +27,8 @@ class UDeviceHelpers {
     return MediaQuery.of(context).viewInsets.bottom;
   }
 
-  static double getAppBarHeight(BuildContext context) {
-    return kMinInteractiveDimension;
+  static double getAppBarHeight() {
+    return kTextTabBarHeight;
   }
 
   static double getScreenWidth(BuildContext context) {
