@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/helpers/device_helpers.dart';
@@ -22,12 +23,12 @@ class UAppBar extends StatelessWidget implements PreferredSize {
 
   @override
   Widget build(BuildContext context) {
-    return  AppBar(
+    return AppBar(
         //automaticallyImplyLeading: false,
         backgroundColor: UColors.primaryColor,
         leading: showBackArrow
             ? IconButton(
-                onPressed: onLeadingPressed,
+                onPressed: onLeadingPressed ?? () => Get.back(),
                 icon: Icon(Iconsax.arrow_left),
               )
             : leadingIcon != null

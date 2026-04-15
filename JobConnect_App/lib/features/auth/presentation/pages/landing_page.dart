@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/utils.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:jobconnect_app/common/widgets/appbar/appbar.dart';
 import 'package:jobconnect_app/common/widgets/icons/GradientIconBox.dart';
@@ -6,17 +7,17 @@ import 'package:jobconnect_app/core/constant/app_gradient.dart';
 import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/constant/size.dart';
 import 'package:jobconnect_app/core/constant/text.dart';
-
+import 'package:jobconnect_app/features/auth/presentation/pages/signin/signin_screen.dart';
+import 'package:get/get.dart';
 import '../../../../common/widgets/cards/role_action_card.dart';
+
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        gradient: UAppGradient.primaryGradient,
-      ),
+      decoration: const BoxDecoration(gradient: UAppGradient.primaryGradient),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: UAppBar(),
@@ -34,7 +35,15 @@ class LandingPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  UGradientIconBox(size: 80,icon: Icon(Iconsax.home,color: UColors.primaryColor,size: USizes.iconLg,),gradient: UAppGradient.secondaryGradient,),
+                  UGradientIconBox(
+                    size: 80,
+                    icon: Icon(
+                      Iconsax.home,
+                      color: UColors.primaryColor,
+                      size: USizes.iconLg,
+                    ),
+                    gradient: UAppGradient.secondaryGradient,
+                  ),
                   const SizedBox(height: USizes.md),
                   Text(
                     UText.projectTitle,
@@ -82,9 +91,20 @@ class LandingPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: USizes.spaceBtwSections),
-                  URoleActionCard(icon: Icon(Iconsax.user,color: UColors.primaryColor,),title: UText.iamJobSeeker,subtitle: UText.findYourDreamJob,onPressesd: (){},),
+                  URoleActionCard(
+                    icon: Icon(Iconsax.user, color: UColors.primaryColor),
+                    title: UText.iamJobSeeker,
+                    subtitle: UText.findYourDreamJob,
+                    onPressesd: () =>Get.to(() => const SignInScreen()),
+                  ),
                   const SizedBox(height: USizes.spaceBtwItems),
-                  URoleActionCard(icon: Icon(Iconsax.home,color: UColors.white,),title: UText.imamEmployer,subtitle: UText.findTopTalent,gradient: UAppGradient.primaryGradient,onPressesd: (){},),
+                  URoleActionCard(
+                    icon: Icon(Iconsax.home, color: UColors.white),
+                    title: UText.imamEmployer,
+                    subtitle: UText.findTopTalent,
+                    gradient: UAppGradient.primaryGradient,
+                    onPressesd: () {},
+                  ),
                 ],
               ),
             ),
@@ -94,8 +114,6 @@ class LandingPage extends StatelessWidget {
     );
   }
 }
-
-
 
 class _BenefitRow extends StatelessWidget {
   const _BenefitRow({required this.text});
@@ -126,5 +144,3 @@ class _BenefitRow extends StatelessWidget {
     );
   }
 }
-
-
