@@ -5,22 +5,26 @@ import 'colors.dart';
 class UAppGradient {
   UAppGradient._();
 
-  static const LinearGradient primaryBackgroundGradient = LinearGradient(
+  static const LinearGradient primaryGradient = LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
     colors: [
-      UColors.primaryColor,
-      UColors.primaryColorDark,
+      UColors.primaryGradientStart,
+      UColors.primaryGradientEnd,
     ],
   );
 
-  static const LinearGradient successBackgroundGradient = LinearGradient(
+  static const LinearGradient verifyEmailSuccessGradient = LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
     colors: [
-      UColors.secondaryColor,
-      UColors.secondaryColorDark,
+      UColors.successGradientStart,
+      UColors.successGradientEnd,
     ],
   );
+
+  static const LinearGradient primaryBackgroundGradient = primaryGradient;
+  static const LinearGradient successBackgroundGradient =
+      verifyEmailSuccessGradient;
 
 }
