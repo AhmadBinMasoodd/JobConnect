@@ -42,7 +42,7 @@ class AuthResetLayout extends StatelessWidget {
                 Text(
                   titleText,
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         fontFamily: 'Arimo',
                         color: UColors.primaryColor,
                       ),

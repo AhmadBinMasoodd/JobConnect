@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:jobconnect_app/features/auth/presentation/pages/forget_password/new_password_screen.dart';
 
 import '../../../../../../common/style/padding.dart';
 import '../../../../../../common/widgets/buttons/custom_action_button.dart';
@@ -9,7 +10,7 @@ import '../../../../../../core/constant/colors.dart';
 import '../../../../../../core/constant/size.dart';
 import '../../../../../../core/constant/text.dart';
 import 'otp_input_row.dart';
-
+import 'package:get/get.dart';
 class VerifyCodeContent extends StatelessWidget {
   const VerifyCodeContent({super.key});
 
@@ -93,7 +94,7 @@ class VerifyCodeContent extends StatelessWidget {
                 const SizedBox(height: USizes.spaceBtwItems),
                 CustomActionButton(
                   text: UText.verifyCode,
-                  onPressed: () {},
+                  onPressed: () =>Get.to(()=>NewPasswordScreen()),
                   gradient: UAppGradient.primaryGradientOpacity,
                 ),
               ],
