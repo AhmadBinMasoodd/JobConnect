@@ -5,7 +5,7 @@ import 'package:jobconnect_app/common/widgets/appbar/appbar.dart';
 import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/constant/size.dart';
 import 'package:jobconnect_app/core/constant/text.dart';
-import 'package:jobconnect_app/features/auth/presentation/pages/signin/widgets/auth_custom_header.dart';
+import 'package:jobconnect_app/common/widgets/appbar/auth_custom_header.dart';
 
 import 'widgets/signup_form_content.dart';
 

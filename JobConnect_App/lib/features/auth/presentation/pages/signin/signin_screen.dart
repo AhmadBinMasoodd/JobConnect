@@ -5,9 +5,10 @@ import 'package:jobconnect_app/common/widgets/appbar/appbar.dart';
 import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/constant/size.dart';
 import 'package:jobconnect_app/core/constant/text.dart';
+import 'package:jobconnect_app/features/auth/presentation/pages/forget_password/forget_password_screen.dart';
 import 'package:jobconnect_app/features/auth/presentation/pages/signup/signup_screen.dart';
 
-import 'widgets/auth_custom_header.dart';
+import '../../../../../common/widgets/appbar/auth_custom_header.dart';
 import 'widgets/signin_form_content.dart';
 import 'widgets/social_signin_buttons.dart';
 
@@ -44,7 +45,7 @@ class SignInScreen extends StatelessWidget {
 
 
                     SignInFormContent(
-                      onForgotPasswordPressed: () {},
+                      onForgotPasswordPressed: () =>Get.to(()=>ForgetPasswordScreen()),
                       onSignInPressed: () {},
                       onSignUpPressed: () => Get.to(() => const SignUpScreen()),
                     ),

@@ -14,6 +14,7 @@ class CustomActionButton extends StatelessWidget {
     this.horizontalPadding = USizes.md,
     this.verticalPadding = USizes.buttonHeight,
     this.borderRadius = USizes.buttonRadius,
+    this.gradient
   });
 
   final String text;
@@ -24,38 +25,50 @@ class CustomActionButton extends StatelessWidget {
   final double horizontalPadding;
   final double verticalPadding;
   final double borderRadius;
-
+  final Gradient? gradient;
   @override
   Widget build(BuildContext context) {
+    final bool hasGradient = gradient != null;
+
     return SizedBox(
       width: double.infinity,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor,
-          foregroundColor: textColor,
-          padding: EdgeInsets.symmetric(
-            horizontal: horizontalPadding,
-            vertical: verticalPadding,
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius),
-            side: BorderSide(
-              color: borderColor ?? backgroundColor,
-              width: 1,
-            ),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: hasGradient ? null : backgroundColor,
+          gradient: gradient,
+          borderRadius: BorderRadius.circular(borderRadius),
+          border: Border.all(
+            color: borderColor ?? (hasGradient ? Colors.transparent : backgroundColor),
+            width: 1,
           ),
         ),
-        child: Text(
-          text,
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: textColor,
-                fontFamily: 'Arimo',
-                fontWeight: FontWeight.w600,
-              ),
+        child: ElevatedButton(
+          onPressed: onPressed,
+          style: ElevatedButton.styleFrom(
+            // Keep the button layer transparent so gradient/background stays visible.
+            backgroundColor: Colors.transparent,
+            shadowColor: Colors.transparent,
+            surfaceTintColor: Colors.transparent,
+            elevation: 0,
+            foregroundColor: textColor,
+            padding: EdgeInsets.symmetric(
+              horizontal: horizontalPadding,
+              vertical: verticalPadding,
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(borderRadius),
+            ),
+          ),
+          child: Text(
+            text,
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  color: textColor,
+                  fontFamily: 'Arimo',
+                  fontWeight: FontWeight.w600,
+                ),
+          ),
         ),
       ),
     );
   }
 }
-

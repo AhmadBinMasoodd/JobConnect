@@ -22,4 +22,12 @@ class UAppGradient {
       UColors.primaryColorDark,
     ],
   );
+  static  LinearGradient primaryGradientOpacity = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      UColors.primaryColor.withValues(alpha: 0.5),
+      UColors.primaryColorDark.withValues(alpha: 0.5),
+    ],
+  );
 }

@@ -40,4 +40,17 @@ class UText {
   static const String emailHint = 'you@gmail.com';
   static const String phoneNumberHint = '+91 98765 43210';
   static const String passwordHint = 'Enter your password';
+
+  static const String forgotPassword = 'Forgot Password';
+  static const String resetYourPassword = 'Reset Your Password';
+  static const String resetPasswordSubtitle = 'Enter your email and we\'ll send you the code to reset your password' ;
+  static const String forgetPasswordEmailLabel = 'Email Address';
+  static const String sendResetCode = 'Send Varification  Code';
+
+  static const String verifyCode='Verify Code';
+  static const String verifyCodeTitle = 'Enter Varification Code';
+  static const String verifyCodeSubtitle = 'We\'ve sent a 6 digit code';
+  static const String verifyCodeHint = 'Enter 6-digit code';
+  static const String verificationBtnTxt='Send Varification Code';
+
 }
