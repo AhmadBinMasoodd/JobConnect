@@ -4,8 +4,8 @@ import 'package:jobconnect_app/common/widgets/appbar/custom_title_bar.dart';
 import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/constant/size.dart';
 
-class AuthResetLayout extends StatelessWidget {
-  const AuthResetLayout({
+class TitleWithIcon extends StatelessWidget {
+  const TitleWithIcon({
     super.key,
     required this.title,
     required this.icon,
@@ -43,17 +43,17 @@ class AuthResetLayout extends StatelessWidget {
                   titleText,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        fontFamily: 'Arimo',
-                        color: UColors.primaryColor,
-                      ),
+                    fontFamily: 'Arimo',
+                    color: UColors.primaryColor,
+                  ),
                 ),
                 Text(
                   subtitleText,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        fontFamily: 'Arimo',
-                        color: UColors.mutedTextColor,
-                      ),
+                    fontFamily: 'Arimo',
+                    color: UColors.mutedTextColor,
+                  ),
                 ),
                 SizedBox(height: sectionSpacing),
                 // Caller provides the container/content for the reset action area.

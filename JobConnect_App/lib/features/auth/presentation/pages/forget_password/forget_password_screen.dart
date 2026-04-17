@@ -6,7 +6,7 @@ import 'package:jobconnect_app/core/constant/app_gradient.dart';
 import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/constant/size.dart';
 import 'package:jobconnect_app/core/constant/text.dart';
-import 'package:jobconnect_app/common/widgets/layout/auth_reset_layout.dart';
+import 'package:jobconnect_app/common/widgets/layout/title_with_icon.dart';
 import 'package:jobconnect_app/features/auth/presentation/pages/forget_password/widgets/forget_password_container.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
@@ -16,7 +16,7 @@ class ForgetPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: UAppBar(showBackArrow: true,),
-      body: AuthResetLayout(
+      body: TitleWithIcon(
         title: UText.forgotPassword,
         icon: UGradientIconBox(
           size: USizes.iconSm * 4,

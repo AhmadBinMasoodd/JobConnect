@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:jobconnect_app/common/widgets/appbar/appbar.dart';
-import 'package:jobconnect_app/common/widgets/layout/auth_reset_layout.dart';
+import 'package:jobconnect_app/common/widgets/layout/title_with_icon.dart';
 import 'package:jobconnect_app/features/auth/presentation/pages/forget_password/widgets/new_password_container.dart';
 
 import '../../../../../common/widgets/icons/GradientIconBox.dart';
@@ -16,7 +16,7 @@ class NewPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: UAppBar(showBackArrow: true),
-      body: AuthResetLayout(
+      body: TitleWithIcon(
         title: 'New Password',
         icon: UGradientIconBox(
           size: USizes.iconSm * 4,
