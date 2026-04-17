@@ -19,6 +19,8 @@ class UColors {
   static const Color mutedColorDark=Color(0xFF364153);
 
   static const Color success=Color(0xFFDCFCE7);
+  static const Color green=Color(0xff00A63E);
+
   static const Color error = Color(0xFFEF4444);       // Red
   static const Color warning = Color(0xFFF59E0B);     // Amber
   static const Color info = Color(0xFF3B82F6);

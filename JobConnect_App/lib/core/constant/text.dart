@@ -53,4 +53,9 @@ class UText {
   static const String verifyCodeHint = 'Enter 6-digit code';
   static const String verificationBtnTxt='Send Varification Code';
 
+  static const String passwordResetSuccessTitle = 'Password Reset Successful';
+  static const String passwordResetSuccessSubtitle = 'Your password has been reset successfully. You can now log in with your new password.';
+  static const String accountNowSecure = 'Your account is now secure with your new password.';
+  static const String pleaseRememberToKeepItSafe = 'Please remember to keep it safe.';
+  static const String backToLogin = 'Back to Login';
 }
