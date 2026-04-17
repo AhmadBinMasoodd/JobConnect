@@ -9,6 +9,7 @@ import 'package:jobconnect_app/core/constant/size.dart';
 import 'package:jobconnect_app/core/constant/text.dart';
 import 'package:jobconnect_app/features/auth/presentation/pages/signin/signin_screen.dart';
 import 'package:get/get.dart';
+import 'package:jobconnect_app/features/company/company_profile_setup/details_about_screen.dart';
 import '../../../../common/widgets/cards/role_action_card.dart';
 
 class LandingPage extends StatelessWidget {
@@ -103,7 +104,7 @@ class LandingPage extends StatelessWidget {
                     title: UText.imamEmployer,
                     subtitle: UText.findTopTalent,
                     gradient: UAppGradient.primaryGradient,
-                    onPressesd: () {},
+                    onPressesd: () =>Get.to(()=>DetailsAboutScreen()),
                   ),
                 ],
               ),
