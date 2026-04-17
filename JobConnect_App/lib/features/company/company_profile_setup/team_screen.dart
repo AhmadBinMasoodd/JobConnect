@@ -6,26 +6,29 @@ import 'package:jobconnect_app/common/widgets/appbar/appbar.dart';
 import 'package:jobconnect_app/common/widgets/buttons/custom_icon_action_button.dart';
 import 'package:jobconnect_app/common/widgets/layout/screen_header.dart';
 import 'package:jobconnect_app/core/constant/app_gradient.dart';
+import 'package:jobconnect_app/core/constant/colors.dart';
+import 'package:jobconnect_app/core/constant/size.dart';
 import 'package:jobconnect_app/core/constant/text.dart';
-import 'package:jobconnect_app/features/company/company_profile_setup/details_about_screen.dart';
-import 'package:jobconnect_app/features/company/company_profile_setup/team_screen.dart';
-import 'package:jobconnect_app/features/company/company_profile_setup/widgets/location_form_section.dart';
+import 'package:jobconnect_app/features/company/company_profile_setup/controller/team_controller.dart';
 import 'package:jobconnect_app/features/company/company_profile_setup/widgets/registration_progress_header.dart';
+import 'package:jobconnect_app/features/company/company_profile_setup/widgets/team_form_section.dart';
 
 import '../../../common/widgets/cards/shadow_box.dart';
-import '../../../core/constant/colors.dart';
-import '../../../core/constant/size.dart';
 
-class LocationScreen extends StatelessWidget {
-  const LocationScreen({super.key});
+class TeamScreen extends StatelessWidget {
+  const TeamScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final TeamController controller = Get.isRegistered<TeamController>()
+        ? Get.find<TeamController>()
+        : Get.put(TeamController());
+
     return Scaffold(
       appBar: UAppBar(
         showBackArrow: true,
         title: Text(
-          'Location',
+          'About Your Team',
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 color: UColors.white,
                 fontFamily: 'Arimo',
@@ -34,23 +37,23 @@ class LocationScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const RegistrationProgressHeader(currentStep: 2),
+          const RegistrationProgressHeader(currentStep: 3),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   ScreenHeader(
                     size: USizes.iconMd * 3,
-                    gradient: UAppGradient.secondaryGradient,
+                    gradient: UAppGradient.primaryGradient,
                     icon: const Icon(
-                      Iconsax.location,
-                      color: UColors.primaryColorDark,
+                      Iconsax.people,
+                      color: UColors.white,
                     ),
-                    titleText: 'Where are you located',
+                    titleText: 'About Your Team',
                     subtitleText:
-                        'Your company address and contact information',
+                        'Tell the candidate about your company size and structure.',
                     child: ShadowBox(
-                      child: const LocationFormSection(),
+                      child: TeamFormSection(controller: controller),
                     ),
                   ),
                   Padding(
@@ -59,8 +62,8 @@ class LocationScreen extends StatelessWidget {
                       children: [
                         CustomIconActionButton(
                           title: UText.continueBtnText,
-                          icon: Iconsax.arrow_right_3,
-                          onPressed: () => Get.to(() => const TeamScreen()),
+                          icon: Icons.arrow_forward,
+                          onPressed: () {},
                           gradient: UAppGradient.primaryGradient,
                         ),
                         const SizedBox(height: USizes.spaceBtwItems),

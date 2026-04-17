@@ -16,7 +16,7 @@ class ShadowBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(USizes.sm),
+      padding: const EdgeInsets.all(USizes.md),
       height: height,
       decoration: BoxDecoration(
         color: UColors.white,
