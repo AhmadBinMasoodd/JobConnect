@@ -12,6 +12,7 @@ import 'package:jobconnect_app/core/constant/text.dart';
 import 'package:jobconnect_app/features/company/company_profile_setup/controller/team_controller.dart';
 import 'package:jobconnect_app/features/company/company_profile_setup/widgets/registration_progress_header.dart';
 import 'package:jobconnect_app/features/company/company_profile_setup/widgets/team_form_section.dart';
+import 'package:jobconnect_app/features/company/company_profile_setup/verify_screen.dart';
 
 import '../../../common/widgets/cards/shadow_box.dart';
 
@@ -63,7 +64,7 @@ class TeamScreen extends StatelessWidget {
                         CustomIconActionButton(
                           title: UText.continueBtnText,
                           icon: Icons.arrow_forward,
-                          onPressed: () {},
+                          onPressed: () => Get.to(() => const VerifyScreen()),
                           gradient: UAppGradient.primaryGradient,
                         ),
                         const SizedBox(height: USizes.spaceBtwItems),

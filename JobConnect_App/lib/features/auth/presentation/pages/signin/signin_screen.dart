@@ -6,6 +6,7 @@ import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/constant/size.dart';
 import 'package:jobconnect_app/core/constant/text.dart';
 import 'package:jobconnect_app/features/auth/presentation/pages/forget_password/forget_password_screen.dart';
+import 'package:jobconnect_app/features/auth/presentation/pages/landing_page.dart';
 import 'package:jobconnect_app/features/auth/presentation/pages/signup/signup_screen.dart';
 
 import '../../../../../common/widgets/appbar/auth_custom_header.dart';
@@ -18,7 +19,10 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: UAppBar(showBackArrow: true),
+      appBar: UAppBar(
+        showBackArrow: true,
+        onLeadingPressed: () => Get.offAll(() => const LandingPage()),
+      ),
       body: Container(
         // Keep the page background white so the area under terms stays white.
         height: double.infinity,
@@ -42,10 +46,8 @@ class SignInScreen extends StatelessWidget {
                       onApplePressed: () {},
                       onGooglePressed: () {},
                     ),
-
-
                     SignInFormContent(
-                      onForgotPasswordPressed: () =>Get.to(()=>ForgetPasswordScreen()),
+                      onForgotPasswordPressed: () => Get.to(() => const ForgetPasswordScreen()),
                       onSignInPressed: () {},
                       onSignUpPressed: () => Get.to(() => const SignUpScreen()),
                     ),
@@ -59,5 +61,4 @@ class SignInScreen extends StatelessWidget {
     );
   }
 }
-
 

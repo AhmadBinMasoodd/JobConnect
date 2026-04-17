@@ -11,7 +11,7 @@ class UAppBar extends StatelessWidget implements PreferredSize {
     this.leadingIcon,
     this.onLeadingPressed,
     this.actions,
-    this.backArrowIcon = Icons.arrow_back_ios_new_rounded,
+    this.backArrowIcon = Icons.arrow_back,
     this.backArrowSize = 20,
     this.backArrowColor = UColors.white,
   });

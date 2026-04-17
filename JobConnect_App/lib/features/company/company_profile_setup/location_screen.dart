@@ -7,7 +7,6 @@ import 'package:jobconnect_app/common/widgets/buttons/custom_icon_action_button.
 import 'package:jobconnect_app/common/widgets/layout/screen_header.dart';
 import 'package:jobconnect_app/core/constant/app_gradient.dart';
 import 'package:jobconnect_app/core/constant/text.dart';
-import 'package:jobconnect_app/features/company/company_profile_setup/details_about_screen.dart';
 import 'package:jobconnect_app/features/company/company_profile_setup/team_screen.dart';
 import 'package:jobconnect_app/features/company/company_profile_setup/widgets/location_form_section.dart';
 import 'package:jobconnect_app/features/company/company_profile_setup/widgets/registration_progress_header.dart';

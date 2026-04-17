@@ -59,4 +59,17 @@ class UText {
   static const String pleaseRememberToKeepItSafe = 'Please remember to keep it safe.';
   static const String backToLogin = 'Back to Login';
   static const String continueBtnText = 'Continue';
+
+  static const String verifyCompanyTitle = 'Verify Your Company';
+  static const String verifyCompanySubtitle =
+      'Upload the document to verify your identity';
+  static const String verifyProfileReviewNote =
+      'Your profile will be reviewed by our team. This usually takes 24-48 hours. You will receive an email once verified.';
+  static const String businessLicenseLabel =
+      'Business License or Registration Certificate';
+  static const String uploadBusinessDocumentLabel =
+      'Upload official business document';
+  static const String clickToUploadDocument = 'Click to upload document';
+  static const String uploadFileTypesHint = 'PNG, JPG, PDF (max 10 MB)';
+  static const String backBtnText = 'Back';
 }

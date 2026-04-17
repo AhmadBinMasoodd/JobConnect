@@ -5,6 +5,7 @@ import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/constant/size.dart';
 import 'package:jobconnect_app/features/company/company_profile_setup/controller/team_controller.dart';
 import 'package:jobconnect_app/features/company/company_profile_setup/widgets/company_size_dropdown.dart';
+import 'package:jobconnect_app/features/company/company_profile_setup/widgets/column_with_icon_text.dart';
 
 class TeamFormSection extends StatelessWidget {
   const TeamFormSection({super.key, required this.controller});
@@ -89,59 +90,43 @@ class TeamFormSection extends StatelessWidget {
         ),
         const SizedBox(height: USizes.spaceBtwItems),
         Obx(
-          () => GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: controller.departments.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 3,
-              crossAxisSpacing: USizes.xs,
-              childAspectRatio: 3.8,
-            ),
-            itemBuilder: (context, index) {
-              final String department = controller.departments[index];
-              final bool selected =
-                  controller.selectedDepartments.contains(department);
+          () {
+            final List<String> selectedDepartments =
+                controller.selectedDepartments.toList();
 
-              return _buildSelectableChip(
-                context: context,
-                label: department,
-                selected: selected,
-                onTap: () => controller.toggleDepartment(department),
-              );
-            },
-          ),
+            return GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: controller.departments.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 3,
+                crossAxisSpacing: USizes.xs,
+                childAspectRatio: 3.8,
+              ),
+              itemBuilder: (context, index) {
+                final String department = controller.departments[index];
+                final bool selected =
+                    selectedDepartments.contains(department);
+
+                return _buildSelectableChip(
+                  context: context,
+                  label: department,
+                  selected: selected,
+                  onTap: () => controller.toggleDepartment(department),
+                );
+              },
+            );
+          },
         ),
         const SizedBox(height: USizes.spaceBtwSections),
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(USizes.md),
-          decoration: BoxDecoration(
-            color: UColors.primaryColor.withValues(alpha: 0.2),
-            borderRadius: BorderRadius.circular(USizes.cardRadiusMd),
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Icon(
-                Iconsax.info_circle,
-                color: UColors.primaryColor,
-                size: USizes.iconMd,
-              ),
-              const SizedBox(width: USizes.sm),
-              Expanded(
-                child: Text(
-                  'Tip: A complete profile helps you attract better candidates. You can add team members later in your profile settings.',
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: UColors.primaryColor,
-                        fontFamily: 'Arimo',
-                        fontWeight: FontWeight.w500,
-                      ),
-                ),
-              ),
-            ],
-          ),
+        ColumnWIthIconText(
+          text:
+              'Tip: A complete profile helps you attract better candidates. You can add team members later in your profile settings.',
+          icon: Iconsax.info_circle,
+          iconColor: UColors.primaryColor,
+          textColor: UColors.primaryColor,
+          backgroundColor: UColors.primaryColor.withValues(alpha: 0.2),
         ),
       ],
     );
