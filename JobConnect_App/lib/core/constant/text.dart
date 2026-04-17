@@ -58,4 +58,5 @@ class UText {
   static const String accountNowSecure = 'Your account is now secure with your new password.';
   static const String pleaseRememberToKeepItSafe = 'Please remember to keep it safe.';
   static const String backToLogin = 'Back to Login';
+  static const String continueBtnText = 'Continue';
 }

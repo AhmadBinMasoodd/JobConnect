@@ -7,30 +7,24 @@ import 'package:jobconnect_app/common/widgets/buttons/custom_icon_action_button.
 import 'package:jobconnect_app/common/widgets/layout/screen_header.dart';
 import 'package:jobconnect_app/core/constant/app_gradient.dart';
 import 'package:jobconnect_app/core/constant/text.dart';
-import 'package:jobconnect_app/features/company/company_profile_setup/controller/details_about_controller.dart';
-import 'package:jobconnect_app/features/company/company_profile_setup/location_screen.dart';
-import 'package:jobconnect_app/features/company/company_profile_setup/widgets/about_form_section.dart';
+import 'package:jobconnect_app/features/company/company_profile_setup/details_about_screen.dart';
+import 'package:jobconnect_app/features/company/company_profile_setup/widgets/location_form_section.dart';
 import 'package:jobconnect_app/features/company/company_profile_setup/widgets/registration_progress_header.dart';
 
 import '../../../common/widgets/cards/shadow_box.dart';
 import '../../../core/constant/colors.dart';
 import '../../../core/constant/size.dart';
 
-class DetailsAboutScreen extends StatelessWidget {
-  const DetailsAboutScreen({super.key});
+class LocationScreen extends StatelessWidget {
+  const LocationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final DetailsAboutController controller =
-        Get.isRegistered<DetailsAboutController>()
-            ? Get.find<DetailsAboutController>()
-            : Get.put(DetailsAboutController());
-
     return Scaffold(
       appBar: UAppBar(
         showBackArrow: true,
         title: Text(
-          'Details About Your Company',
+          'Location',
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 color: UColors.white,
                 fontFamily: 'Arimo',
@@ -39,7 +33,7 @@ class DetailsAboutScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const RegistrationProgressHeader(currentStep: 1),
+          const RegistrationProgressHeader(currentStep: 2),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
@@ -48,22 +42,38 @@ class DetailsAboutScreen extends StatelessWidget {
                     size: USizes.iconMd * 3,
                     gradient: UAppGradient.secondaryGradient,
                     icon: const Icon(
-                      Iconsax.user_cirlce_add,
+                      Iconsax.location,
                       color: UColors.primaryColorDark,
                     ),
-                    titleText: 'Tell us about your company',
+                    titleText: 'Where are you located',
                     subtitleText:
-                        'Tell Candidates about your company and the type of talent you are looking for.',
+                        'Your company address and contact information',
                     child: ShadowBox(
-                      child: AboutFormSection(controller: controller),
+                      child: const LocationFormSection(),
                     ),
                   ),
                   Padding(
                     padding: UPadding.screenPadding,
-                    child: CustomIconActionButton(
-                      title: UText.continueBtnText,
-                      icon: Icons.arrow_forward,
-                      onPressed: () => Get.to(() => const LocationScreen()),
+                    child: Column(
+                      children: [
+                        CustomIconActionButton(
+                          title: UText.continueBtnText,
+                          icon: Iconsax.arrow_right_3,
+                          onPressed: () => Get.to(() => const DetailsAboutScreen()),
+                          gradient: UAppGradient.primaryGradient,
+                        ),
+                        const SizedBox(height: USizes.spaceBtwItems),
+                        CustomIconActionButton(
+                          title: 'Back',
+                          icon: Icons.arrow_back,
+                          iconOnLeft: true,
+                          onPressed: () => Get.back(),
+                          textColor: UColors.primaryColor,
+                          iconColor: UColors.primaryColor,
+                          backgroundColor: UColors.white,
+                          borderColor: UColors.primaryColor.withValues(alpha: 0.2),
+                        ),
+                      ],
                     ),
                   ),
                 ],
