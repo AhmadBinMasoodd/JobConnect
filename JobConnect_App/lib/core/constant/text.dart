@@ -111,4 +111,28 @@ class UText {
   static const String proceedToDashboard = 'Proceed to Dashboard';
   static const String pendingFooterMessage =
       'You can browse candidates while waiting for approval';
+
+  static const String navHome = 'Home';
+  static const String navFind = 'Find';
+  static const String navChat = 'Chat';
+  static const String navProfile = 'Profile';
+
+  static const String dashboardWelcomeBack = 'Welcome back';
+  static const String dashboardCompanyName = 'TechCorp Inc.';
+  static const String dashboardContacted = 'Contacted';
+  static const String dashboardContactedDelta = '+12 this week';
+  static const String dashboardActiveChats = 'Active Chats';
+  static const String dashboardUnread = '8 unread';
+  static const String dashboardFindPerfectCandidates =
+      'Find Perfect Candidates';
+  static const String dashboardSearchCandidatesSubtitle =
+      'Search through thousands of qualified professionals';
+  static const String dashboardRecentlyContacted = 'Recently Contacted';
+  static const String dashboardViewAll = 'View All';
+  static const String dashboardActivityOverview = 'Activity Overview';
+  static const String dashboardCandidateSearches = 'Candidate Searches';
+  static const String dashboardMessagesSent = 'Messages Sent';
+  static const String dashboardLastSevenDays = 'Last 7 days';
+  static const String dashboardSearchCandidates = 'Search Candidates';
+  static const String dashboardSavedCandidates = 'Saved Candidates';
 }

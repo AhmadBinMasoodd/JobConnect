@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:jobconnect_app/company_navigation_menu.dart';
 import 'package:jobconnect_app/common/style/padding.dart';
 import 'package:jobconnect_app/common/widgets/appbar/appbar.dart';
 import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/constant/size.dart';
+import 'package:jobconnect_app/features/company/dashboard/controller/company_navigation_controller.dart';
 import 'package:jobconnect_app/features/company/verification/widgets/pending_footer_actions.dart';
 import 'package:jobconnect_app/features/company/verification/widgets/pending_help_banner.dart';
 import 'package:jobconnect_app/features/company/verification/widgets/pending_next_steps_card.dart';
@@ -29,18 +32,27 @@ class PendingVerificationScreen extends StatelessWidget {
                 child: Center(
                   child: ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 560),
-                    child: const Column(
+                    child: Column(
                       children: [
-                        PendingVerificationTimelineCard(),
-                        SizedBox(height: USizes.lg),
-                        PendingNextStepsCard(),
-                        SizedBox(height: USizes.lg),
-                        PendingStayUpdatedCard(),
-                        SizedBox(height: USizes.lg),
-                        PendingHelpBanner(),
-                        SizedBox(height: USizes.lg),
-                        PendingFooterActions(),
-                        SizedBox(height: USizes.md),
+                        const PendingVerificationTimelineCard(),
+                        const SizedBox(height: USizes.lg),
+                        const PendingNextStepsCard(),
+                        const SizedBox(height: USizes.lg),
+                        const PendingStayUpdatedCard(),
+                        const SizedBox(height: USizes.lg),
+                        const PendingHelpBanner(),
+                        const SizedBox(height: USizes.lg),
+                        PendingFooterActions(
+                          onProceed: () {
+                            final CompanyNavigationController controller =
+                                Get.isRegistered<CompanyNavigationController>()
+                                ? Get.find<CompanyNavigationController>()
+                                : Get.put(CompanyNavigationController());
+                            controller.changeTab(0);
+                            Get.offAll(() => const CompanyNavigationMenu());
+                          },
+                        ),
+                        const SizedBox(height: USizes.md),
                       ],
                     ),
                   ),

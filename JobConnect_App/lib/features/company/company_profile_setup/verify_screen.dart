@@ -93,6 +93,7 @@ class VerifyScreen extends StatelessWidget {
                                 buttonSubtitle: UText.uploadFileTypesHint,
                                 onTap: _pickDocument,
                               ),
+                              SizedBox(height: USizes.spaceBtwItems,),
                               const DocumentSecurityInfo(
                                 title: 'All documents are secure',
                                 subtitle:
