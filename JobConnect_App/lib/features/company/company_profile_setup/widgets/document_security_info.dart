@@ -10,11 +10,23 @@ class DocumentSecurityInfo extends StatelessWidget {
     required this.title,
     required this.subtitle,
     this.icon = Iconsax.shield_tick,
+    this.iconColor = UColors.green,
+    this.titleColor = UColors.primaryColor,
+    this.subtitleColor = UColors.mutedTextColor,
+    this.iconBackgroundColor,
+    this.iconBorderColor = UColors.green,
+    this.iconBorderWidth = 2.5,
   });
 
   final String title;
   final String subtitle;
   final IconData icon;
+  final Color iconColor;
+  final Color titleColor;
+  final Color subtitleColor;
+  final Color? iconBackgroundColor;
+  final Color? iconBorderColor;
+  final double iconBorderWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +41,17 @@ class DocumentSecurityInfo extends StatelessWidget {
               height: 28,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(
-                  color: UColors.green,
-                  width: 2.5,
-                ),
+                color: iconBackgroundColor,
+                border: iconBorderColor == null
+                    ? null
+                    : Border.all(
+                        color: iconBorderColor!,
+                        width: iconBorderWidth,
+                      ),
               ),
               child: Icon(
                 icon,
-                color: UColors.green,
+                color: iconColor,
                 size: 16,
               ),
             ),
@@ -45,7 +60,7 @@ class DocumentSecurityInfo extends StatelessWidget {
               child: Text(
                 title,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: UColors.primaryColor,
+                      color: titleColor,
                       fontFamily: 'Arimo',
                       fontWeight: FontWeight.w600,
                     ),
@@ -59,7 +74,7 @@ class DocumentSecurityInfo extends StatelessWidget {
           child: Text(
             subtitle,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: UColors.mutedTextColor,
+                  color: subtitleColor,
                   fontFamily: 'Arimo',
                 ),
           ),

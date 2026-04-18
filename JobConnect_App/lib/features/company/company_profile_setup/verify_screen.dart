@@ -13,6 +13,7 @@ import 'package:jobconnect_app/features/company/company_profile_setup/widgets/re
 import 'package:jobconnect_app/features/company/company_profile_setup/widgets/verify_action_buttons.dart';
 import 'package:jobconnect_app/features/company/company_profile_setup/widgets/verify_document_section.dart';
 import 'package:jobconnect_app/features/company/company_profile_setup/widgets/verify_warning_banner.dart';
+import 'package:jobconnect_app/features/company/verification/pending_verification_screen.dart';
 
 import '../../../common/widgets/cards/shadow_box.dart';
 
@@ -108,7 +109,7 @@ class VerifyScreen extends StatelessWidget {
                   Padding(
                     padding: UPadding.screenPadding,
                     child: VerifyActionButtons(
-                      onSubmit: () {},
+                      onSubmit: () =>Get.to(()=>PendingVerificationScreen()),
                       onBack: () => Get.back(),
                     ),
                   ),

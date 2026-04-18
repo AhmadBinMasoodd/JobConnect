@@ -3,7 +3,8 @@ class UText {
 
   static const String appName = 'Job Connect';
   static const String projectTitle = 'JobConnect';
-  static const String landingSubtitle = 'lets connect with opportunities hire top telent';
+  static const String landingSubtitle =
+      'lets connect with opportunities hire top telent';
 
   static const String landingBenefitOne = '3 month free trial';
   static const String landingBenefitTwo = 'one time life time payment';
@@ -43,20 +44,24 @@ class UText {
 
   static const String forgotPassword = 'Forgot Password';
   static const String resetYourPassword = 'Reset Your Password';
-  static const String resetPasswordSubtitle = 'Enter your email and we\'ll send you the code to reset your password' ;
+  static const String resetPasswordSubtitle =
+      'Enter your email and we\'ll send you the code to reset your password';
   static const String forgetPasswordEmailLabel = 'Email Address';
   static const String sendResetCode = 'Send Varification  Code';
 
-  static const String verifyCode='Verify Code';
+  static const String verifyCode = 'Verify Code';
   static const String verifyCodeTitle = 'Enter Varification Code';
   static const String verifyCodeSubtitle = 'We\'ve sent a 6 digit code';
   static const String verifyCodeHint = 'Enter 6-digit code';
-  static const String verificationBtnTxt='Send Varification Code';
+  static const String verificationBtnTxt = 'Send Varification Code';
 
   static const String passwordResetSuccessTitle = 'Password Reset Successful';
-  static const String passwordResetSuccessSubtitle = 'Your password has been reset successfully. You can now log in with your new password.';
-  static const String accountNowSecure = 'Your account is now secure with your new password.';
-  static const String pleaseRememberToKeepItSafe = 'Please remember to keep it safe.';
+  static const String passwordResetSuccessSubtitle =
+      'Your password has been reset successfully. You can now log in with your new password.';
+  static const String accountNowSecure =
+      'Your account is now secure with your new password.';
+  static const String pleaseRememberToKeepItSafe =
+      'Please remember to keep it safe.';
   static const String backToLogin = 'Back to Login';
   static const String continueBtnText = 'Continue';
 
@@ -72,4 +77,38 @@ class UText {
   static const String clickToUploadDocument = 'Click to upload document';
   static const String uploadFileTypesHint = 'PNG, JPG, PDF (max 10 MB)';
   static const String backBtnText = 'Back';
+
+  static const String verificationScreenTitle = 'Verification';
+  static const String pendingVerificationTitle = 'Profile Under Review';
+  static const String pendingVerificationSubtitle =
+      'Your company profile has been submitted for verification';
+  static const String pendingApproval = 'Pending Approval';
+  static const String documentReceivedTitle = 'Documents Received';
+  static const String documentReceivedSubtitle =
+      'All your documents have been uploaded successfully';
+  static const String underVerificationTitle = 'Under Verification';
+  static const String underVerificationSubtitle =
+      'Our team is reviewing your company details';
+  static const String finalDecisionTitle = 'Approval Pending';
+  static const String finalDecisionSubtitle =
+      'You\'ll receive confirmation once approved';
+
+  static const String whatHappensNextTitle = 'What happens next?';
+  static const String whatHappensNextStepOne =
+      'Our team reviews your documents (24-48 hours)';
+  static const String whatHappensNextStepTwo =
+      'You\'ll receive an email notification';
+  static const String whatHappensNextStepThree =
+      'Your profile goes live once approved';
+
+  static const String stayUpdatedTitle = 'Stay Updated';
+  static const String stayUpdatedSubtitle =
+      'We\'ll notify you via email and push notification when your profile is approved';
+  static const String supportEmail = 'contact@company.com';
+
+  static const String pendingHelpMessage =
+      'Need help? If you have any questions or need to update your documents, contact our support team at support@jobconnect.com';
+  static const String proceedToDashboard = 'Proceed to Dashboard';
+  static const String pendingFooterMessage =
+      'You can browse candidates while waiting for approval';
 }
