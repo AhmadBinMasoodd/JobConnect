@@ -135,4 +135,25 @@ class UText {
   static const String dashboardLastSevenDays = 'Last 7 days';
   static const String dashboardSearchCandidates = 'Search Candidates';
   static const String dashboardSavedCandidates = 'Saved Candidates';
+
+  static const String findWorkersTitle = 'Find Workers';
+  static const String findSearchHint = 'Search by role, skills, location...';
+  static const String findFilterAll = 'All';
+  static const String findFilterDevelopers = 'Developers';
+  static const String findFilterDesigners = 'Designers';
+  static const String findFilterMarketing = 'Marketing';
+  static const String findCandidatesCount = 'Found 3 candidates';
+  static const String findExperienceLabel = 'Experience:';
+  static const String findAvailableNow = 'Available';
+  static const String findInTwoWeeks = 'In 2 weeks';
+  static const String findContact = 'Contact';
+  static const String findViewProfile = 'View Profile';
+  static const String findDeveloper = 'Developer';
+  static const String findAiEngineer = 'AI Engineer';
+  static const String findQaEngineer = 'QA Engineer';
+  static const String findUiUxDesigner = 'UI/UX Designer';
+  static const String findProductManager = 'Product Manager';
+  static const String findDevOpsEngineer = 'DevOps Engineer';
+  static const String findDataAnalyst = 'Data Analyst';
+  static const String findMarketingSpecialist = 'Marketing Specialist';
 }
