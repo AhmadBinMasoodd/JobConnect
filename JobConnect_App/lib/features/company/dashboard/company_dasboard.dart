@@ -14,6 +14,27 @@ class CompanyDashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, String>> recentlyContactedCandidates = [
+      {
+        'initials': 'JD',
+        'name': 'John Doe',
+        'role': 'Full Stack Developer',
+        'rating': '4.8',
+      },
+      {
+        'initials': 'SW',
+        'name': 'Sarah Wilson',
+        'role': 'UI/UX Designer',
+        'rating': '4.9',
+      },
+      {
+        'initials': 'MJ',
+        'name': 'Mike Johnson',
+        'role': 'DevOps Engineer',
+        'rating': '4.7',
+      },
+    ];
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -139,25 +160,21 @@ class CompanyDashboardScreen extends StatelessWidget {
                         actionText: UText.dashboardViewAll,
                       ),
                       const SizedBox(height: USizes.sm),
-                      const DashboardCandidateTile(
-                        initials: 'JD',
-                        name: 'John Doe',
-                        role: 'Full Stack Developer',
-                        rating: '4.8',
-                      ),
-                      const SizedBox(height: USizes.sm),
-                      const DashboardCandidateTile(
-                        initials: 'SW',
-                        name: 'Sarah Wilson',
-                        role: 'UI/UX Designer',
-                        rating: '4.9',
-                      ),
-                      const SizedBox(height: USizes.sm),
-                      const DashboardCandidateTile(
-                        initials: 'MJ',
-                        name: 'Mike Johnson',
-                        role: 'DevOps Engineer',
-                        rating: '4.7',
+                      ListView.separated(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: recentlyContactedCandidates.length,
+                        itemBuilder: (context, index) {
+                          final candidate = recentlyContactedCandidates[index];
+                          return DashboardCandidateTile(
+                            initials: candidate['initials']!,
+                            name: candidate['name']!,
+                            role: candidate['role']!,
+                            rating: candidate['rating']!,
+                          );
+                        },
+                        separatorBuilder: (context, index) =>
+                            const SizedBox(height: USizes.sm),
                       ),
                     ],
                   ),
@@ -181,12 +198,13 @@ class CompanyDashboardScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: USizes.md),
-                const Row(
+                Row(
                   children: [
                     Expanded(
                       child: DashboardQuickActionCard(
                         icon: Icons.search,
                         title: UText.dashboardSearchCandidates,
+                        onTap: _onSearchCandidatesPressed,
                       ),
                     ),
                     SizedBox(width: USizes.sm),
@@ -194,6 +212,7 @@ class CompanyDashboardScreen extends StatelessWidget {
                       child: DashboardQuickActionCard(
                         icon: Icons.group_add_outlined,
                         title: UText.dashboardSavedCandidates,
+                        onTap: _onSavedCandidatesPressed,
                       ),
                     ),
                   ],
@@ -252,5 +271,13 @@ class CompanyDashboardScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  static void _onSearchCandidatesPressed() {
+    // Add navigation or action logic here.
+  }
+
+  static void _onSavedCandidatesPressed() {
+    // Add navigation or action logic here.
   }
 }

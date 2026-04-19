@@ -7,6 +7,8 @@ import 'package:jobconnect_app/features/company/dashboard/company_dasboard.dart'
 import 'package:jobconnect_app/features/company/dashboard/controller/company_navigation_controller.dart';
 import 'package:jobconnect_app/features/company/find/find_screen.dart';
 
+import 'features/company/chat/chat_screen.dart';
+
 class CompanyNavigationMenu extends StatelessWidget {
   const CompanyNavigationMenu({super.key});
 
@@ -129,7 +131,7 @@ class CompanyNavigationMenu extends StatelessWidget {
       case 1:
         return const CompanyFindScreen();
       case 2:
-        return const _TabPlaceholder(message: 'This is Chat Screen');
+        return const ChatScreen();
       case 3:
         return const _TabPlaceholder(message: 'This is Profile Screen');
       default:

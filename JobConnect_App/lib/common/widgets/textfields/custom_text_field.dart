@@ -6,18 +6,21 @@ import '../../../core/constant/size.dart';
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
-    required this.label,
+    this.label,
     required this.hintText,
     required this.prefixIcon,
     this.prefixIconColor = const Color(0xFF6B7280),
+    this.backgroundColor = UColors.white,
     this.controller,
     this.validator,
+    this.isLabel = true,
   });
-
-  final String label;
+  final bool isLabel;
+  final String? label;
   final String hintText;
   final IconData prefixIcon;
   final Color prefixIconColor;
+  final Color backgroundColor;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
 
@@ -26,18 +29,21 @@ class CustomTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: UColors.primaryColor,
-                fontFamily: 'Arimo',
-                fontWeight: FontWeight.w600,
-              ),
-        ),
+        if (isLabel && (label?.trim().isNotEmpty ?? false))
+          Text(
+            label!,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: UColors.primaryColor,
+                  fontFamily: 'Arimo',
+                  fontWeight: FontWeight.w600,
+                ),
+          ),
         TextFormField(
           controller: controller,
           validator: validator,
           decoration: InputDecoration(
+            filled: true,
+            fillColor: backgroundColor,
             hintText: hintText,
             hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: UColors.gray,
