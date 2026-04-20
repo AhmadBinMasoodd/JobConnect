@@ -30,4 +30,10 @@ class UColors {
   static const Color verificationInfoSurface = Color(0xFFDBEAFE);
   static const Color verificationInfoIcon = Color(0xFF155DFC);
 
+  static const Color profileCardShadow = Color(0x20000000);
+  static const Color verifiedBadgeBackground = Color(0xFFE9F9EE);
+  static const Color verifiedBadgeText = Color(0xff008236);
+  static const Color profileEditActionBackground = Color(0xFFF5D8A8);
+  static const Color transparent = Color(0x00000000);
+
 }

@@ -156,4 +156,33 @@ class UText {
   static const String findDevOpsEngineer = 'DevOps Engineer';
   static const String findDataAnalyst = 'Data Analyst';
   static const String findMarketingSpecialist = 'Marketing Specialist';
+
+  static const String profileScreenTitle = 'Company Profile';
+  static const String profileVerified = 'Verified';
+  static const String profileAboutCompanyTitle = 'About Company';
+  static const String profileAboutCompanyBody =
+      'TechCorp Inc. is a leading technology company specializing in innovative software solutions.\nWe\'re committed to building cutting-edge products and fostering a culture of excellence and innovation.';
+  static const String profileCompanyDetailsTitle = 'Company Details';
+  static const String profileWebsite = 'Website';
+  static const String profileWebsiteValue = 'www.techcorp.com';
+  static const String profileIndustry = 'Industry';
+  static const String profileIndustryValue =
+      'Technology & Software Development';
+  static const String profileCompanySize = 'Company Size';
+  static const String profileCompanySizeValue = '50-200 employees';
+  static const String profileHeadquarters = 'Headquarters';
+  static const String profileHeadquartersValue =
+      '123 Tech Street, San Francisco, CA 94105';
+  static const String profileCultureBenefitsTitle = 'Culture & Benefits';
+  static const String profileEdit = 'Edit';
+  static const String profileVerificationDocumentsTitle = 'Verification Documents';
+  static const String profileBusinessLicense = 'Business License';
+  static const String profileTaxId = 'Tax ID';
+  static const String profileStatusVerified = 'Verified';
+  static const String profileAccountSettingsTitle = 'Account Settings';
+  static const String profileChangePassword = 'Change Password';
+  static const String profileSubscriptionBilling = 'Subscription & Billing';
+  static const String profileComingSoon = 'Coming Soon';
+  static const String profileLogout = 'Logout';
+  static const String profileDeleteAccount = 'Delete Account';
 }
