@@ -5,6 +5,7 @@ import 'package:jobconnect_app/core/constant/app_gradient.dart';
 import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/constant/size.dart';
 import 'package:jobconnect_app/core/constant/text.dart';
+import 'package:jobconnect_app/features/company/profile/full_profile_screen.dart';
 import 'package:jobconnect_app/features/company/profile/widgets/profile_detail_box.dart';
 import 'package:jobconnect_app/features/company/profile/widgets/profile_section_card.dart';
 import 'package:jobconnect_app/features/company/profile/widgets/profile_setting_tile.dart';
@@ -402,9 +403,9 @@ class _ProfileHeaderCard extends StatelessWidget {
                     color: UColors.transparent,
                     child: InkWell(
                       onTap: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Edit company profile image'),
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => const FullProfileScreen(),
                           ),
                         );
                       },
@@ -417,6 +418,7 @@ class _ProfileHeaderCard extends StatelessWidget {
                           shape: BoxShape.circle,
                           border: Border.all(color: UColors.white, width: 1.5),
                         ),
+                        alignment: Alignment.center,
                         child: const Icon(
                           Icons.edit,
                           size: 14,
