@@ -70,7 +70,6 @@ class CustomIconActionButton extends StatelessWidget {
             ),
           ),
           child: Row(
-            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (iconOnLeft) ...[
@@ -81,13 +80,20 @@ class CustomIconActionButton extends StatelessWidget {
                 ),
                 SizedBox(width: spacing),
               ],
-              Text(
-                title,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: textColor,
-                      fontFamily: 'Arimo',
-                      fontWeight: FontWeight.w600,
-                    ),
+              Flexible(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    title,
+                    maxLines: 1,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: textColor,
+                          fontFamily: 'Arimo',
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                ),
               ),
               if (!iconOnLeft) ...[
                 SizedBox(width: spacing),

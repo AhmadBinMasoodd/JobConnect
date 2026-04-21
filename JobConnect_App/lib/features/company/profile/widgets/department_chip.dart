@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constant/colors.dart';
-import '../../../../core/constant/size.dart';
 
 /// A styled chip widget for displaying department tags
 /// Used in the departments section of company profile

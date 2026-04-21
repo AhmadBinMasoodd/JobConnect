@@ -1,54 +1,67 @@
 import 'package:flutter/material.dart';
-import 'package:jobconnect_app/common/widgets/appbar/appbar.dart';
-import 'package:jobconnect_app/common/widgets/buttons/custom_icon_action_button.dart';
-import 'package:jobconnect_app/common/widgets/cards/shadow_box.dart';
-import 'package:jobconnect_app/common/widgets/textfields/custom_text_field.dart';
-import 'package:jobconnect_app/common/widgets/textfields/custom_rich_text_field.dart';
-import 'package:jobconnect_app/core/constant/app_gradient.dart';
-import 'package:jobconnect_app/core/constant/colors.dart';
-import 'package:jobconnect_app/core/constant/size.dart';
-import 'package:jobconnect_app/core/helpers/device_helpers.dart';
-import 'package:jobconnect_app/features/company/profile/edit_profile_screen.dart';
-import 'widgets/company_details_header_card.dart';
-import 'widgets/department_chip.dart';
-import 'widgets/verification_status_tile.dart';
-import 'package:get/get.dart';
+import 'package:jobconnect_app/features/company/profile/widgets/company_details_header_card.dart';
+import 'package:jobconnect_app/features/company/profile/widgets/department_chip.dart';
+import 'package:jobconnect_app/features/company/profile/widgets/verification_status_tile.dart';
 
-/// Full company profile display screen
-/// Shows comprehensive company information including:
-/// - Company details (name, industry, founding year, description, team size)
-/// - Location information
-/// - Contact details
-/// - Department list
-/// - Verification status
-class FullProfileScreen extends StatelessWidget {
-  const FullProfileScreen({super.key});
+import '../../../common/widgets/appbar/appbar.dart';
+import '../../../common/widgets/buttons/custom_icon_action_button.dart';
+import '../../../common/widgets/cards/shadow_box.dart';
+import '../../../common/widgets/textfields/custom_rich_text_field.dart';
+import '../../../common/widgets/textfields/custom_text_field.dart';
+import '../../../core/constant/app_gradient.dart';
+import '../../../core/constant/colors.dart';
+import '../../../core/constant/size.dart';
+import '../../../core/helpers/device_helpers.dart';
+
+class EditProfileScreen extends StatelessWidget {
+  const EditProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // App bar with back button and edit action
-      appBar: UAppBar(
-        showBackArrow: true,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: USizes.sm),
-            child: SizedBox(
-              width: 90,
-              child: CustomIconActionButton(
-                title: 'Edit',
-                iconOnLeft: true,
-                borderColor: UColors.white,
-                backgroundColor: UColors.white.withValues(alpha: 0.15),
-                iconColor: UColors.white,
-                icon: Icons.edit,
-                verticalPadding: 6,
-                onPressed: ()=>Get.to(()=>EditProfileScreen()),
+        appBar:UAppBar(
+          showBackArrow: true,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: USizes.sm),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    width: 112,
+                    child: CustomIconActionButton(
+                      title: 'Cancel',
+                      iconOnLeft: true,
+                      borderColor: UColors.primaryColor,
+                      backgroundColor: UColors.white.withValues(alpha: 0.2),
+                      textColor: UColors.white,
+                      iconColor: UColors.white,
+                      icon: Icons.close,
+                      horizontalPadding: USizes.sm,
+                      verticalPadding: 6,
+                      onPressed: () {},
+                    ),
+                  ),
+                  const SizedBox(width: USizes.sm),
+                  SizedBox(
+                    width: 104,
+                    child: CustomIconActionButton(
+                      title: 'Save',
+                      iconOnLeft: true,
+                      borderColor: UColors.white,
+                      backgroundColor: UColors.secondaryColor,
+                      iconColor: UColors.primaryColor,
+                      icon: Icons.save,
+                      horizontalPadding: USizes.sm,
+                      verticalPadding: 6,
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
               ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -92,10 +105,10 @@ class FullProfileScreen extends StatelessWidget {
                               Text(
                                 'Company Information',
                                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                      color: UColors.primaryColor,
-                                      fontFamily: 'Arimo',
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                                  color: UColors.primaryColor,
+                                  fontFamily: 'Arimo',
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ],
                           ),
@@ -104,10 +117,10 @@ class FullProfileScreen extends StatelessWidget {
                           Text(
                             'Company Name',
                             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: UColors.primaryColor,
-                                  fontFamily: 'Arimo',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                              color: UColors.primaryColor,
+                              fontFamily: 'Arimo',
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                           const SizedBox(height: USizes.sm),
                           const CustomTextField(
@@ -119,10 +132,10 @@ class FullProfileScreen extends StatelessWidget {
                           Text(
                             'Industry',
                             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: UColors.primaryColor,
-                                  fontFamily: 'Arimo',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                              color: UColors.primaryColor,
+                              fontFamily: 'Arimo',
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                           const SizedBox(height: USizes.sm),
                           const CustomTextField(
@@ -134,10 +147,10 @@ class FullProfileScreen extends StatelessWidget {
                           Text(
                             'Year Founded',
                             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: UColors.primaryColor,
-                                  fontFamily: 'Arimo',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                              color: UColors.primaryColor,
+                              fontFamily: 'Arimo',
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                           const SizedBox(height: USizes.sm),
                           const CustomTextField(
@@ -149,10 +162,10 @@ class FullProfileScreen extends StatelessWidget {
                           Text(
                             'Company Description',
                             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: UColors.primaryColor,
-                                  fontFamily: 'Arimo',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                              color: UColors.primaryColor,
+                              fontFamily: 'Arimo',
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                           const SizedBox(height: USizes.sm),
                           const CustomRichTextField(
@@ -165,10 +178,10 @@ class FullProfileScreen extends StatelessWidget {
                           Text(
                             'Team Size',
                             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: UColors.primaryColor,
-                                  fontFamily: 'Arimo',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                              color: UColors.primaryColor,
+                              fontFamily: 'Arimo',
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                           const SizedBox(height: USizes.sm),
                           const CustomTextField(
@@ -203,10 +216,10 @@ class FullProfileScreen extends StatelessWidget {
                               Text(
                                 'Location',
                                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                      color: UColors.primaryColor,
-                                      fontFamily: 'Arimo',
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                                  color: UColors.primaryColor,
+                                  fontFamily: 'Arimo',
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ],
                           ),
@@ -215,18 +228,18 @@ class FullProfileScreen extends StatelessWidget {
                           Text(
                             'Street Address',
                             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                  color: UColors.gray,
-                                  fontFamily: 'Arimo',
-                                ),
+                              color: UColors.gray,
+                              fontFamily: 'Arimo',
+                            ),
                           ),
                           const SizedBox(height: USizes.xs),
                           Text(
                             '123 Tech Street',
                             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: UColors.primaryColor,
-                                  fontFamily: 'Arimo',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                              color: UColors.primaryColor,
+                              fontFamily: 'Arimo',
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                           const SizedBox(height: USizes.md),
                           // City and State/Province in a row
@@ -239,18 +252,18 @@ class FullProfileScreen extends StatelessWidget {
                                     Text(
                                       'City',
                                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                            color: UColors.gray,
-                                            fontFamily: 'Arimo',
-                                          ),
+                                        color: UColors.gray,
+                                        fontFamily: 'Arimo',
+                                      ),
                                     ),
                                     const SizedBox(height: USizes.xs),
                                     Text(
                                       'San Francisco',
                                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                            color: UColors.primaryColor,
-                                            fontFamily: 'Arimo',
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                        color: UColors.primaryColor,
+                                        fontFamily: 'Arimo',
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -262,18 +275,18 @@ class FullProfileScreen extends StatelessWidget {
                                     Text(
                                       'State/Province',
                                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                            color: UColors.gray,
-                                            fontFamily: 'Arimo',
-                                          ),
+                                        color: UColors.gray,
+                                        fontFamily: 'Arimo',
+                                      ),
                                     ),
                                     const SizedBox(height: USizes.xs),
                                     Text(
                                       'California',
                                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                            color: UColors.primaryColor,
-                                            fontFamily: 'Arimo',
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                        color: UColors.primaryColor,
+                                        fontFamily: 'Arimo',
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -291,18 +304,18 @@ class FullProfileScreen extends StatelessWidget {
                                     Text(
                                       'Country',
                                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                            color: UColors.gray,
-                                            fontFamily: 'Arimo',
-                                          ),
+                                        color: UColors.gray,
+                                        fontFamily: 'Arimo',
+                                      ),
                                     ),
                                     const SizedBox(height: USizes.xs),
                                     Text(
                                       'United States',
                                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                            color: UColors.primaryColor,
-                                            fontFamily: 'Arimo',
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                        color: UColors.primaryColor,
+                                        fontFamily: 'Arimo',
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -314,18 +327,18 @@ class FullProfileScreen extends StatelessWidget {
                                     Text(
                                       'ZIP/Postal Code',
                                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                            color: UColors.gray,
-                                            fontFamily: 'Arimo',
-                                          ),
+                                        color: UColors.gray,
+                                        fontFamily: 'Arimo',
+                                      ),
                                     ),
                                     const SizedBox(height: USizes.xs),
                                     Text(
                                       '94105',
                                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                            color: UColors.primaryColor,
-                                            fontFamily: 'Arimo',
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                        color: UColors.primaryColor,
+                                        fontFamily: 'Arimo',
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -360,10 +373,10 @@ class FullProfileScreen extends StatelessWidget {
                               Text(
                                 'Contact Information',
                                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                      color: UColors.primaryColor,
-                                      fontFamily: 'Arimo',
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                                  color: UColors.primaryColor,
+                                  fontFamily: 'Arimo',
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ],
                           ),
@@ -372,54 +385,54 @@ class FullProfileScreen extends StatelessWidget {
                           Text(
                             'Phone Number',
                             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                  color: UColors.gray,
-                                  fontFamily: 'Arimo',
-                                ),
+                              color: UColors.gray,
+                              fontFamily: 'Arimo',
+                            ),
                           ),
                           const SizedBox(height: USizes.xs),
                           Text(
                             '+1 (555) 123-4567',
                             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: UColors.primaryColor,
-                                  fontFamily: 'Arimo',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                              color: UColors.primaryColor,
+                              fontFamily: 'Arimo',
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                           const SizedBox(height: USizes.md),
                           // Email Address
                           Text(
                             'Email Address',
                             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                  color: UColors.gray,
-                                  fontFamily: 'Arimo',
-                                ),
+                              color: UColors.gray,
+                              fontFamily: 'Arimo',
+                            ),
                           ),
                           const SizedBox(height: USizes.xs),
                           Text(
                             'contact@techcorp.com',
                             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: UColors.primaryColor,
-                                  fontFamily: 'Arimo',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                              color: UColors.primaryColor,
+                              fontFamily: 'Arimo',
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                           const SizedBox(height: USizes.md),
                           // Website
                           Text(
                             'Website',
                             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                  color: UColors.gray,
-                                  fontFamily: 'Arimo',
-                                ),
+                              color: UColors.gray,
+                              fontFamily: 'Arimo',
+                            ),
                           ),
                           const SizedBox(height: USizes.xs),
                           Text(
                             'www.techcorp.com',
                             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: UColors.primaryColor,
-                                  fontFamily: 'Arimo',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                              color: UColors.primaryColor,
+                              fontFamily: 'Arimo',
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ],
                       ),
@@ -449,10 +462,10 @@ class FullProfileScreen extends StatelessWidget {
                               Text(
                                 'Departments',
                                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                      color: UColors.primaryColor,
-                                      fontFamily: 'Arimo',
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                                  color: UColors.primaryColor,
+                                  fontFamily: 'Arimo',
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ],
                           ),
@@ -497,10 +510,10 @@ class FullProfileScreen extends StatelessWidget {
                               Text(
                                 'Verification Status',
                                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                      color: UColors.primaryColor,
-                                      fontFamily: 'Arimo',
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                                  color: UColors.primaryColor,
+                                  fontFamily: 'Arimo',
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ],
                           ),
@@ -529,5 +542,3 @@ class FullProfileScreen extends StatelessWidget {
     );
   }
 }
-
-
