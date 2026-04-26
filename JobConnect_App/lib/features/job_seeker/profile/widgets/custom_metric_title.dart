@@ -3,6 +3,7 @@ import 'package:jobconnect_app/common/widgets/icons/GradientIconBox.dart';
 import 'package:jobconnect_app/core/constant/app_gradient.dart';
 import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/constant/size.dart';
+import 'package:jobconnect_app/core/helpers/device_helpers.dart';
 
 class CustomMetricTitle extends StatelessWidget {
   const CustomMetricTitle({
@@ -20,12 +21,11 @@ class CustomMetricTitle extends StatelessWidget {
   final Gradient gradient;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
+    return Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           UGradientIconBox(
-            size: USizes.iconLg * 2,
+            size:USizes.buttonHeight*3,
             icon: icon,
             gradient: UAppGradient.secondaryGradient,
           ),
@@ -45,7 +45,7 @@ class CustomMetricTitle extends StatelessWidget {
             ),
           ),
         ],
-      ),
+
     );
   }
 }

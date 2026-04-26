@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:jobconnect_app/common/style/padding.dart';
 import 'package:jobconnect_app/common/widgets/textfields/custom_text_field.dart';
@@ -6,10 +7,12 @@ import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/helpers/device_helpers.dart';
 import 'package:jobconnect_app/features/job_seeker/common/appbar/custom_app_bar.dart';
 import 'package:jobconnect_app/features/job_seeker/common/title/custom_title.dart';
+import 'package:jobconnect_app/features/job_seeker/profile/professional_details_screen.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_metric_title.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_progress_header.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_screen_header.dart';
 
+import '../../../common/widgets/buttons/custom_icon_action_button.dart';
 import '../../../core/constant/size.dart';
 
 class BasicInformationScreen extends StatelessWidget {
@@ -27,10 +30,9 @@ class BasicInformationScreen extends StatelessWidget {
           children: [
             Text(
               'Step 1 of 5',
-              style: Theme.of(context).textTheme.bodySmall!.copyWith(
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 color: UColors.white,
                 fontFamily: 'Arimo',
-                fontSize: screenWidth * 0.035,
               ),
             ),
           ],
@@ -94,6 +96,9 @@ class BasicInformationScreen extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(height: USizes.spaceBtwSections,),
+            CustomIconActionButton(title: 'Continue', icon: Icons.arrow_forward, onPressed: ()=>Get.to(()=>ProfessionalDetailsScreen()))
+
           ],
         ),
       ),

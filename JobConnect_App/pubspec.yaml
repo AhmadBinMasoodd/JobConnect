@@ -39,6 +39,7 @@ dependencies:
   get: ^4.7.3
   iconsax_flutter: ^1.0.1
   file_picker: ^8.1.4
+  flutter_screenutil: ^5.9.3
 dev_dependencies:
   flutter_test:
     sdk: flutter
