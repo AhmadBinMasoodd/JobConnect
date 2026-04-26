@@ -11,6 +11,7 @@ import 'package:jobconnect_app/features/auth/presentation/pages/signin/signin_sc
 import 'package:get/get.dart';
 import 'package:jobconnect_app/features/company/company_profile_setup/details_about_screen.dart';
 import '../../../../common/widgets/cards/role_action_card.dart';
+import '../../../job_seeker/profile/basic_information_screen.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -96,7 +97,7 @@ class LandingPage extends StatelessWidget {
                     icon: Icon(Iconsax.user, color: UColors.primaryColor),
                     title: UText.iamJobSeeker,
                     subtitle: UText.findYourDreamJob,
-                    onPressesd: () =>Get.to(() => const SignInScreen()),
+                    onPressesd: () =>Get.to(() => const BasicInformationScreen()),
                   ),
                   const SizedBox(height: USizes.spaceBtwItems),
                   URoleActionCard(
