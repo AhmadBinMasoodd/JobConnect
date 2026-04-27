@@ -36,4 +36,6 @@ class UColors {
   static const Color profileEditActionBackground = Color(0xFFF5D8A8);
   static const Color transparent = Color(0x00000000);
 
+  static const Color lightBlue=Color(0xffBEDBFF);
+  static const Color veryLightBlue=Color(0xffEFF6FF);
 }

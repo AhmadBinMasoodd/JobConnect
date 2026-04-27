@@ -39,8 +39,8 @@ class CustomMetricTitle extends StatelessWidget {
           ),
           Text(
             subtitle,
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-              color: UColors.mutedColorDark,
+            style: Theme.of(context).textTheme.labelLarge!.copyWith(
+              color: UColors.primaryColor,
               fontFamily: 'Arimo',
             ),
           ),
