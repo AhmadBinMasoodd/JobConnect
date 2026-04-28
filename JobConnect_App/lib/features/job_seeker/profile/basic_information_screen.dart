@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
-import 'package:jobconnect_app/common/style/padding.dart';
 import 'package:jobconnect_app/common/widgets/textfields/custom_text_field.dart';
 import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/helpers/device_helpers.dart';
@@ -13,6 +12,7 @@ import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_progre
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_screen_header.dart';
 
 import '../../../common/widgets/buttons/custom_icon_action_button.dart';
+import '../../../core/constant/app_gradient.dart';
 import '../../../core/constant/size.dart';
 
 class BasicInformationScreen extends StatelessWidget {
@@ -96,10 +96,17 @@ class BasicInformationScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: USizes.spaceBtwSections,),
-            CustomIconActionButton(title: 'Continue', icon: Icons.arrow_forward, onPressed: ()=>Get.to(()=>ProfessionalDetailsScreen()))
-
+            const SizedBox(height: USizes.spaceBtwSections),
           ],
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(USizes.defaultSpace),
+        child: CustomIconActionButton(
+          title: 'Continue',
+          icon: Icons.arrow_forward,
+          onPressed: () => Get.to(() => const ProfessionalDetailsScreen()),
+          gradient: UAppGradient.primaryGradientOpacity,
         ),
       ),
     );

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax_flutter/iconsax_flutter.dart';
-import 'package:jobconnect_app/common/style/padding.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/controllers/skill_controller.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_metric_title.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_progress_header.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_screen_header.dart';
 import 'package:get/get.dart';
+import 'package:jobconnect_app/features/job_seeker/profile/work_experience_screen.dart';
 import '../../../common/widgets/buttons/custom_icon_action_button.dart';
+import '../../../core/constant/app_gradient.dart';
 import '../../../core/constant/colors.dart';
 import '../../../core/constant/size.dart';
 import '../../../core/helpers/device_helpers.dart';
@@ -272,19 +272,21 @@ class _SkillScreenState extends State<SkillScreen> {
                         ),
                       );
                     }),
-                    // Responsive space
-                    SizedBox(height: screenHeight * 0.15),
-                    CustomIconActionButton(
-                      title: 'Continue',
-                      icon: Icons.arrow_forward,
-                      onPressed: () {},
-                    ),
                     const SizedBox(height: USizes.spaceBtwSections),
                   ],
                 ),
               ),
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(USizes.defaultSpace),
+        child: CustomIconActionButton(
+          title: 'Continue',
+          icon: Icons.arrow_forward,
+          onPressed: () =>Get.to(()=>WorkExperienceScreen()),
+          gradient: UAppGradient.primaryGradientOpacity,
         ),
       ),
     );

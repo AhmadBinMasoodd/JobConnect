@@ -3,7 +3,6 @@ import 'package:jobconnect_app/common/widgets/icons/GradientIconBox.dart';
 import 'package:jobconnect_app/core/constant/app_gradient.dart';
 import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/constant/size.dart';
-import 'package:jobconnect_app/core/helpers/device_helpers.dart';
 
 class CustomMetricTitle extends StatelessWidget {
   const CustomMetricTitle({

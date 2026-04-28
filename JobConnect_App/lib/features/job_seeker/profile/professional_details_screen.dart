@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:jobconnect_app/common/widgets/buttons/custom_icon_action_button.dart';
 import 'package:jobconnect_app/core/constant/colors.dart';
-import 'package:jobconnect_app/features/company/company_profile_setup/widgets/custom_rich_text_field.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/skill_screen.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_metric_title.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_progress_header.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_screen_header.dart';
 import 'package:get/get.dart';
 import '../../../common/widgets/textfields/custom_text_field.dart';
+import '../../../core/constant/app_gradient.dart';
 import '../../../core/constant/size.dart';
 import '../../../core/helpers/device_helpers.dart';
 import '../common/appbar/custom_app_bar.dart';
@@ -112,20 +112,21 @@ class _ProfessionalDetailsScreenState extends State<ProfessionalDetailsScreen> {
                     ),
                     const SizedBox(height: USizes.spaceBtwSections),
 
-                    // Responsive space instead of fixed 150
-                    SizedBox(height: screenHeight * 0.15),
-
-                    CustomIconActionButton(
-                      title: 'Continue',
-                      icon: Icons.arrow_forward,
-                      onPressed: () => Get.to(() => const SkillScreen()),
-                    ),
-                    const SizedBox(height: USizes.spaceBtwSections),
+                    // Removed from bottom of Column
                   ],
                 ),
               ),
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(USizes.defaultSpace),
+        child: CustomIconActionButton(
+          title: 'Continue',
+          icon: Icons.arrow_forward,
+          onPressed: () => Get.to(() => const SkillScreen()),
+          gradient: UAppGradient.primaryGradientOpacity,
         ),
       ),
     );

@@ -7,7 +7,6 @@ import 'package:jobconnect_app/core/constant/app_gradient.dart';
 import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/constant/size.dart';
 import 'package:jobconnect_app/core/constant/text.dart';
-import 'package:jobconnect_app/features/auth/presentation/pages/signin/signin_screen.dart';
 import 'package:get/get.dart';
 import 'package:jobconnect_app/features/company/company_profile_setup/details_about_screen.dart';
 import '../../../../common/widgets/cards/role_action_card.dart';
