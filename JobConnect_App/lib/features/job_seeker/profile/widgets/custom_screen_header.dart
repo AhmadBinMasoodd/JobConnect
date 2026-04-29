@@ -17,13 +17,17 @@ class CustomScreenHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final resolvedHeight = height ?? UDeviceHelpers.getScreenHeight(context) * 0.3;
     return Container(
-      padding: UPadding.screenPadding,
-      height: resolvedHeight,
-      width: double.infinity,
       decoration: BoxDecoration(
         gradient: UAppGradient.primaryGradient
       ),
-      child: child,
+      child: SafeArea(
+        child: Container(
+          padding: UPadding.screenPadding,
+          height: resolvedHeight,
+          width: double.infinity,
+          child: child,
+        ),
+      ),
     );
   }
 }

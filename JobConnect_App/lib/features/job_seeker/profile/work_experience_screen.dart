@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jobconnect_app/common/widgets/cards/shadow_box.dart';
+import 'package:jobconnect_app/common/widgets/textfields/custom_text_field.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/controllers/work_experience_controller.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_info_box.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_metric_title.dart';
@@ -42,9 +44,9 @@ class WorkExperienceScreen extends StatelessWidget {
             Text(
               'Step 4 of 5',
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    color: Colors.white,
-                    fontFamily: 'Arimo',
-                  ),
+                color: Colors.white,
+                fontFamily: 'Arimo',
+              ),
             ),
           ],
         ),
@@ -73,13 +75,13 @@ class WorkExperienceScreen extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    const CustomMetricTitle(
+                    CustomMetricTitle(
                       title: 'Work Experience',
                       subtitle: 'Share your work history',
                       icon: Icon(
                         Icons.card_travel_sharp,
                         color: UColors.primaryColor,
-                        size: USizes.iconMd,
+                        size: screenWidth * 0.08,
                       ),
                     ),
                     const SizedBox(height: USizes.spaceBtwSections),
@@ -88,10 +90,13 @@ class WorkExperienceScreen extends StatelessWidget {
                       children: [
                         Text(
                           'Do you have the work experience?',
-                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          style: Theme.of(context).textTheme.bodyMedium!
+                              .copyWith(
                                 color: UColors.mutedColorDark,
                                 fontFamily: 'Arimo',
                                 fontWeight: FontWeight.w600,
+                                fontSize:
+                                    screenWidth * 0.035, // Responsive title
                               ),
                         ),
                         const SizedBox(height: USizes.spaceBtwItems),
@@ -105,6 +110,8 @@ class WorkExperienceScreen extends StatelessWidget {
                                   isSelected:
                                       controller.hasExperience.value == true,
                                   onTap: () => controller.setExperience(true),
+                                  screenWidth: screenWidth,
+                                  screenHeight: screenHeight,
                                 ),
                               ),
                               const SizedBox(width: USizes.spaceBtwItems),
@@ -115,6 +122,8 @@ class WorkExperienceScreen extends StatelessWidget {
                                   isSelected:
                                       controller.hasExperience.value == false,
                                   onTap: () => controller.setExperience(false),
+                                  screenWidth: screenWidth,
+                                  screenHeight: screenHeight,
                                 ),
                               ),
                             ],
@@ -133,29 +142,100 @@ class WorkExperienceScreen extends StatelessWidget {
                               Text(
                                 'No worries! everyone starts somewhere',
                                 textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .labelLarge!
+                                style: Theme.of(context).textTheme.labelLarge!
                                     .copyWith(
                                       color: UColors.primaryColor,
                                       fontFamily: 'Arimo',
+                                      fontSize: screenWidth * 0.035,
+                                      // Responsive font
                                       fontWeight: FontWeight.bold,
                                     ),
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                'focus on highlighting your skills and what you can bring to potential employers',
+                                'Focus on highlighting your skills and what you can bring to potential employers',
                                 textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .labelLarge!
+                                style: Theme.of(context).textTheme.labelLarge!
                                     .copyWith(
                                       color: UColors.primaryColor,
                                       fontFamily: 'Arimo',
+                                      fontSize:
+                                          screenWidth *
+                                          0.032, // Responsive font
                                     ),
                               ),
                             ],
                           ),
+                        );
+                      }
+                      if (controller.hasExperience.value == true) {
+                        return Column(
+                          children: [
+                            ShadowBox(
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'Current Position',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .labelLarge!
+                                        .copyWith(
+                                          color: UColors.primaryColor,
+                                          fontFamily: 'Arimo',
+                                          fontSize: screenWidth * 0.035,
+                                          // Responsive font
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+
+                                  CustomTextField(
+                                    label: 'Company Name',
+                                    hintText: 'TechCrop Inc.',
+                                    prefixIcon: Icons.perm_identity,
+                                  ),
+                                  SizedBox(height: USizes.spaceBtwInputFields,),
+                                  CustomTextField(
+                                    label: 'Role/Position',
+                                    hintText: 'Previous Role.',
+                                    prefixIcon: Icons.real_estate_agent,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: USizes.spaceBtwSections),
+                            ShadowBox(
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'Previous Position (Optional)',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .labelLarge!
+                                        .copyWith(
+                                      color: UColors.primaryColor,
+                                      fontFamily: 'Arimo',
+                                      fontSize: screenWidth * 0.035,
+                                      // Responsive font
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+
+                                  CustomTextField(
+                                    label: 'Company Name',
+                                    hintText: 'TechCrop Inc.',
+                                    prefixIcon: Icons.perm_identity,
+                                  ),
+                                  SizedBox(height: USizes.spaceBtwInputFields,),
+
+                                  CustomTextField(
+                                    label: 'Role/Position',
+                                    hintText: 'Previous Role.',
+                                    prefixIcon: Icons.real_estate_agent,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         );
                       }
                       return const SizedBox.shrink();
@@ -186,12 +266,18 @@ class WorkExperienceScreen extends StatelessWidget {
     required String title,
     required bool isSelected,
     required VoidCallback onTap,
+    required double screenWidth,
+    required double screenHeight,
   }) {
+    // Determine card height based on screen size
+    double cardHeight = screenHeight * 0.12;
+    if (screenHeight < 700) cardHeight = 90;
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(USizes.md),
-        height: 100,
+        height: cardHeight,
         decoration: BoxDecoration(
           color: UColors.white,
           borderRadius: BorderRadius.circular(15),
@@ -203,11 +289,11 @@ class WorkExperienceScreen extends StatelessWidget {
         child: Stack(
           children: [
             Align(
-              alignment: Alignment.topCenter, // Icon moved to the top-middle
+              alignment: Alignment.topCenter,
               child: Icon(
                 isSelected ? Icons.check_circle : Icons.check_circle_outline,
                 color: isSelected ? UColors.primaryColor : UColors.lightGray,
-                size: 24,
+                size: screenWidth * 0.06, // Responsive icon size
               ),
             ),
             Align(
@@ -215,13 +301,13 @@ class WorkExperienceScreen extends StatelessWidget {
               child: Text(
                 title,
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: isSelected
-                          ? UColors.primaryColor
-                          : UColors.mutedColorDark,
-                      fontFamily: 'Arimo',
-                      fontWeight:
-                          isSelected ? FontWeight.bold : FontWeight.normal,
-                    ),
+                  color: isSelected
+                      ? UColors.primaryColor
+                      : UColors.mutedColorDark,
+                  fontFamily: 'Arimo',
+                  fontSize: screenWidth * 0.035, // Responsive font size
+                  fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                ),
               ),
             ),
           ],
