@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jobconnect_app/common/widgets/cards/shadow_box.dart';
-import 'package:jobconnect_app/common/widgets/textfields/custom_text_field.dart';
+import 'package:jobconnect_app/common/style/padding.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/controllers/work_experience_controller.dart';
+import 'package:jobconnect_app/features/job_seeker/profile/education_details_screen.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_info_box.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_metric_title.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_progress_header.dart';
 import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_screen_header.dart';
+import 'package:jobconnect_app/features/job_seeker/profile/widgets/experience_details.dart';
 
 import '../../../common/widgets/buttons/custom_icon_action_button.dart';
 import '../../../core/constant/app_gradient.dart';
@@ -54,196 +55,134 @@ class WorkExperienceScreen extends StatelessWidget {
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              CustomScreenHeader(
-                height: headerHeight,
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomTitle(title: 'Complete Your Profile'),
-                    SizedBox(height: USizes.spaceBtwItems),
-                    CustomProgressHeader(progress: 0.67),
-                  ],
+          child: Padding(
+            padding: UPadding.screenPadding,
+            child: Column(
+              children: [
+                CustomScreenHeader(
+                  height: headerHeight,
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CustomTitle(title: 'Complete Your Profile'),
+                      SizedBox(height: USizes.spaceBtwItems),
+                      CustomProgressHeader(progress: 0.67),
+                    ],
+                  ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: screenWidth * 0.05,
-                  vertical: screenHeight * 0.02,
-                ),
-                child: Column(
-                  children: [
-                    CustomMetricTitle(
-                      title: 'Work Experience',
-                      subtitle: 'Share your work history',
-                      icon: Icon(
-                        Icons.card_travel_sharp,
-                        color: UColors.primaryColor,
-                        size: screenWidth * 0.08,
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: screenWidth * 0.05,
+                    vertical: screenHeight * 0.02,
+                  ),
+                  child: Column(
+                    children: [
+                      CustomMetricTitle(
+                        title: 'Work Experience',
+                        subtitle: 'Share your work history',
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        textAlign: TextAlign.start,
+                        icon: Icon(
+                          Icons.card_travel_sharp,
+                          color: UColors.primaryColor,
+                          size: screenWidth * 0.08,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: USizes.spaceBtwSections),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Do you have the work experience?',
-                          style: Theme.of(context).textTheme.bodyMedium!
-                              .copyWith(
-                                color: UColors.mutedColorDark,
-                                fontFamily: 'Arimo',
-                                fontWeight: FontWeight.w600,
-                                fontSize:
-                                    screenWidth * 0.035, // Responsive title
-                              ),
-                        ),
-                        const SizedBox(height: USizes.spaceBtwItems),
-                        Obx(
-                          () => Row(
-                            children: [
-                              Expanded(
-                                child: _buildExperienceCard(
-                                  context: context,
-                                  title: 'Yes',
-                                  isSelected:
-                                      controller.hasExperience.value == true,
-                                  onTap: () => controller.setExperience(true),
-                                  screenWidth: screenWidth,
-                                  screenHeight: screenHeight,
+                      const SizedBox(height: USizes.spaceBtwSections),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Do you have the work experience?',
+                            style: Theme.of(context).textTheme.bodyMedium!
+                                .copyWith(
+                                  color: UColors.mutedColorDark,
+                                  fontFamily: 'Arimo',
+                                  fontWeight: FontWeight.w600,
+                                  fontSize:
+                                      screenWidth * 0.035, // Responsive title
                                 ),
-                              ),
-                              const SizedBox(width: USizes.spaceBtwItems),
-                              Expanded(
-                                child: _buildExperienceCard(
-                                  context: context,
-                                  title: 'No Experience',
-                                  isSelected:
-                                      controller.hasExperience.value == false,
-                                  onTap: () => controller.setExperience(false),
-                                  screenWidth: screenWidth,
-                                  screenHeight: screenHeight,
+                          ),
+                          const SizedBox(height: USizes.spaceBtwItems),
+                          Obx(
+                            () => Row(
+                              children: [
+                                Expanded(
+                                  child: _buildExperienceCard(
+                                    context: context,
+                                    title: 'Yes',
+                                    isSelected:
+                                        controller.hasExperience.value == true,
+                                    onTap: () => controller.setExperience(true),
+                                    screenWidth: screenWidth,
+                                    screenHeight: screenHeight,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: USizes.spaceBtwSections),
-                    Obx(() {
-                      if (controller.hasExperience.value == false) {
-                        return CustomInfoBox(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'No worries! everyone starts somewhere',
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.labelLarge!
-                                    .copyWith(
-                                      color: UColors.primaryColor,
-                                      fontFamily: 'Arimo',
-                                      fontSize: screenWidth * 0.035,
-                                      // Responsive font
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                'Focus on highlighting your skills and what you can bring to potential employers',
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.labelLarge!
-                                    .copyWith(
-                                      color: UColors.primaryColor,
-                                      fontFamily: 'Arimo',
-                                      fontSize:
-                                          screenWidth *
-                                          0.032, // Responsive font
-                                    ),
-                              ),
-                            ],
-                          ),
-                        );
-                      }
-                      if (controller.hasExperience.value == true) {
-                        return Column(
-                          children: [
-                            ShadowBox(
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'Current Position',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .labelLarge!
-                                        .copyWith(
-                                          color: UColors.primaryColor,
-                                          fontFamily: 'Arimo',
-                                          fontSize: screenWidth * 0.035,
-                                          // Responsive font
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                const SizedBox(width: USizes.spaceBtwItems),
+                                Expanded(
+                                  child: _buildExperienceCard(
+                                    context: context,
+                                    title: 'No Experience',
+                                    isSelected:
+                                        controller.hasExperience.value == false,
+                                    onTap: () => controller.setExperience(false),
+                                    screenWidth: screenWidth,
+                                    screenHeight: screenHeight,
                                   ),
-
-                                  CustomTextField(
-                                    label: 'Company Name',
-                                    hintText: 'TechCrop Inc.',
-                                    prefixIcon: Icons.perm_identity,
-                                  ),
-                                  SizedBox(height: USizes.spaceBtwInputFields,),
-                                  CustomTextField(
-                                    label: 'Role/Position',
-                                    hintText: 'Previous Role.',
-                                    prefixIcon: Icons.real_estate_agent,
-                                  ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                            SizedBox(height: USizes.spaceBtwSections),
-                            ShadowBox(
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'Previous Position (Optional)',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .labelLarge!
-                                        .copyWith(
-                                      color: UColors.primaryColor,
-                                      fontFamily: 'Arimo',
-                                      fontSize: screenWidth * 0.035,
-                                      // Responsive font
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-
-                                  CustomTextField(
-                                    label: 'Company Name',
-                                    hintText: 'TechCrop Inc.',
-                                    prefixIcon: Icons.perm_identity,
-                                  ),
-                                  SizedBox(height: USizes.spaceBtwInputFields,),
-
-                                  CustomTextField(
-                                    label: 'Role/Position',
-                                    hintText: 'Previous Role.',
-                                    prefixIcon: Icons.real_estate_agent,
-                                  ),
-                                ],
-                              ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: USizes.spaceBtwSections),
+                      Obx(() {
+                        if (controller.hasExperience.value == false) {
+                          return CustomInfoBox(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'No worries! everyone starts somewhere',
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context).textTheme.labelLarge!
+                                      .copyWith(
+                                        color: UColors.primaryColor,
+                                        fontFamily: 'Arimo',
+                                        fontSize: screenWidth * 0.035,
+                                        // Responsive font
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  'Focus on highlighting your skills and what you can bring to potential employers',
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context).textTheme.labelLarge!
+                                      .copyWith(
+                                        color: UColors.primaryColor,
+                                        fontFamily: 'Arimo',
+                                        fontSize:
+                                            screenWidth *
+                                            0.032, // Responsive font
+                                      ),
+                                ),
+                              ],
                             ),
-                          ],
-                        );
-                      }
-                      return const SizedBox.shrink();
-                    }),
-                  ],
+                          );
+                        }
+                        if (controller.hasExperience.value == true) {
+                          return ExperienceDetails(screenWidth: screenWidth);
+                        }
+                        return const SizedBox.shrink();
+                      }),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -254,6 +193,7 @@ class WorkExperienceScreen extends StatelessWidget {
           icon: Icons.arrow_forward,
           onPressed: () {
             // Navigation logic here
+            Get.to(()=>EducationDetailsScreen());
           },
           gradient: UAppGradient.primaryGradientOpacity,
         ),
@@ -316,3 +256,4 @@ class WorkExperienceScreen extends StatelessWidget {
     );
   }
 }
+

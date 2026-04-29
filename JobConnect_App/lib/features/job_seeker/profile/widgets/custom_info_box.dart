@@ -7,12 +7,18 @@ class CustomInfoBox extends StatelessWidget {
     super.key,
     required this.child,
     this.icon = Icons.lightbulb_outline,
-    this.iconColor = UColors.primaryColor, // Changed to primaryColor
+    this.iconColor = UColors.primaryColor,
+    this.backgroundColor = UColors.veryLightBlue,
+    this.borderColor = UColors.lightBlue,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
   });
 
   final Widget child;
   final IconData icon;
   final Color iconColor;
+  final Color backgroundColor;
+  final Color borderColor;
+  final CrossAxisAlignment crossAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
@@ -20,20 +26,20 @@ class CustomInfoBox extends StatelessWidget {
       padding: const EdgeInsets.all(USizes.md),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: UColors.veryLightBlue,
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: UColors.lightBlue),
+        border: Border.all(color: borderColor),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center, // Centered vertically
+        crossAxisAlignment: crossAxisAlignment,
         children: [
           Icon(
             icon,
             size: USizes.iconSm,
             color: iconColor,
           ),
-          const SizedBox(width: USizes.defaultSpace),
+          const SizedBox(width: USizes.md),
           Expanded(child: child),
         ],
       ),
