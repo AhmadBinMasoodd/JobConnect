@@ -6,10 +6,10 @@ import 'package:jobconnect_app/core/constant/colors.dart';
 import 'package:jobconnect_app/core/helpers/device_helpers.dart';
 import 'package:jobconnect_app/features/job_seeker/common/appbar/custom_app_bar.dart';
 import 'package:jobconnect_app/features/job_seeker/common/title/custom_title.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/professional_details_screen.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_metric_title.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_progress_header.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_screen_header.dart';
+import 'package:jobconnect_app/features/job_seeker/details/professional_details_screen.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_metric_title.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_progress_header.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_screen_header.dart';
 
 import '../../../common/widgets/buttons/custom_icon_action_button.dart';
 import '../../../core/constant/app_gradient.dart';
@@ -112,3 +112,4 @@ class BasicInformationScreen extends StatelessWidget {
     );
   }
 }
+

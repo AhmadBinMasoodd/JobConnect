@@ -122,7 +122,7 @@ class TeamFormSection extends StatelessWidget {
         const SizedBox(height: USizes.spaceBtwSections),
         ColumnWIthIconText(
           text:
-              'Tip: A complete profile helps you attract better candidates. You can add team members later in your profile settings.',
+              'Tip: A complete protile helps you attract better candidates. You can add team members later in your protile settings.',
           icon: Iconsax.info_circle,
           iconColor: UColors.primaryColor,
           textColor: UColors.primaryColor,

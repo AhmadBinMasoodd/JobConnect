@@ -11,7 +11,7 @@ class URoleActionCard extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.subtitle,
-    required this.onPressesd,
+    required this.onPressed,
     this.gradient,  // Made optional with default value below
   });
 
@@ -19,7 +19,7 @@ class URoleActionCard extends StatelessWidget {
   final Gradient? gradient;  // Made nullable
   final String title;
   final String subtitle;
-  final VoidCallback onPressesd;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,7 @@ class URoleActionCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(24),
             ),
             child: IconButton(
-              onPressed:onPressesd,
+              onPressed:onPressed,
               icon: Icon(Iconsax.arrow_right,color: UColors.primaryColor,),
               iconSize: USizes.iconLg,
               padding: EdgeInsets.zero,

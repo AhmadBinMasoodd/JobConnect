@@ -10,7 +10,7 @@ import 'package:jobconnect_app/core/constant/text.dart';
 import 'package:get/get.dart';
 import 'package:jobconnect_app/features/company/company_profile_setup/details_about_screen.dart';
 import '../../../../common/widgets/cards/role_action_card.dart';
-import '../../../job_seeker/profile/basic_information_screen.dart';
+import '../../../job_seeker/details/basic_information_screen.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -96,7 +96,7 @@ class LandingPage extends StatelessWidget {
                     icon: Icon(Iconsax.user, color: UColors.primaryColor),
                     title: UText.iamJobSeeker,
                     subtitle: UText.findYourDreamJob,
-                    onPressesd: () =>Get.to(() => const BasicInformationScreen()),
+                    onPressed: () =>Get.to(() => const BasicInformationScreen()),
                   ),
                   const SizedBox(height: USizes.spaceBtwItems),
                   URoleActionCard(
@@ -104,7 +104,7 @@ class LandingPage extends StatelessWidget {
                     title: UText.imamEmployer,
                     subtitle: UText.findTopTalent,
                     gradient: UAppGradient.primaryGradient,
-                    onPressesd: () =>Get.to(()=>DetailsAboutScreen()),
+                    onPressed: () =>Get.to(()=>DetailsAboutScreen()),
                   ),
                 ],
               ),
@@ -145,3 +145,4 @@ class _BenefitRow extends StatelessWidget {
     );
   }
 }
+

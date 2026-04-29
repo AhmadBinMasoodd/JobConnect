@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jobconnect_app/common/widgets/textfields/custom_text_field.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/controllers/education_controller.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_info_box.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_metric_title.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_progress_header.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_screen_header.dart';
+import 'package:jobconnect_app/job_seeker_navigation_menu.dart';
+import 'package:jobconnect_app/features/job_seeker/home/controller/job_seeker_navigation_controller.dart';
+import 'package:jobconnect_app/features/job_seeker/details/controllers/education_controller.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_info_box.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_metric_title.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_progress_header.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_screen_header.dart';
 
 import '../../../common/widgets/buttons/custom_icon_action_button.dart';
 import '../../../core/constant/app_gradient.dart';
@@ -230,7 +232,9 @@ class EducationDetailsScreen extends StatelessWidget {
           title: 'Complete & Continue',
           icon: Icons.arrow_forward,
           onPressed: () {
-            // Navigation logic to subscription or dashboard
+            final navVisibilityController = Get.put(JobSeekerNavigationController());
+            navVisibilityController.changeTab(2); // Profile tab
+            Get.offAll(() => const JobSeekerNavigationMenu());
           },
           gradient: UAppGradient.primaryGradientOpacity,
         ),
@@ -238,3 +242,4 @@ class EducationDetailsScreen extends StatelessWidget {
     );
   }
 }
+

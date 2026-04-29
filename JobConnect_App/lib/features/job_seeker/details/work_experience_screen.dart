@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jobconnect_app/common/style/padding.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/controllers/work_experience_controller.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/education_details_screen.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_info_box.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_metric_title.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_progress_header.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_screen_header.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/experience_details.dart';
+import 'package:jobconnect_app/features/job_seeker/details/controllers/work_experience_controller.dart';
+import 'package:jobconnect_app/features/job_seeker/details/education_details_screen.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_info_box.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_metric_title.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_progress_header.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_screen_header.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/experience_details.dart';
 
 import '../../../common/widgets/buttons/custom_icon_action_button.dart';
 import '../../../core/constant/app_gradient.dart';
@@ -256,4 +256,5 @@ class WorkExperienceScreen extends StatelessWidget {
     );
   }
 }
+
 

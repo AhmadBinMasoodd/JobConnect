@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:jobconnect_app/common/widgets/buttons/custom_icon_action_button.dart';
 import 'package:jobconnect_app/core/constant/colors.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/skill_screen.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_metric_title.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_progress_header.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_screen_header.dart';
+import 'package:jobconnect_app/features/job_seeker/details/skill_screen.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_metric_title.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_progress_header.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_screen_header.dart';
 import 'package:get/get.dart';
 import '../../../common/widgets/textfields/custom_text_field.dart';
 import '../../../core/constant/app_gradient.dart';
@@ -132,3 +132,4 @@ class _ProfessionalDetailsScreenState extends State<ProfessionalDetailsScreen> {
     );
   }
 }
+

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/controllers/skill_controller.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_metric_title.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_progress_header.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/widgets/custom_screen_header.dart';
+import 'package:jobconnect_app/features/job_seeker/details/controllers/skill_controller.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_metric_title.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_progress_header.dart';
+import 'package:jobconnect_app/features/job_seeker/details/widgets/custom_screen_header.dart';
 import 'package:get/get.dart';
-import 'package:jobconnect_app/features/job_seeker/profile/work_experience_screen.dart';
+import 'package:jobconnect_app/features/job_seeker/details/work_experience_screen.dart';
 import '../../../common/widgets/buttons/custom_icon_action_button.dart';
 import '../../../core/constant/app_gradient.dart';
 import '../../../core/constant/colors.dart';
@@ -292,3 +292,4 @@ class _SkillScreenState extends State<SkillScreen> {
     );
   }
 }
+

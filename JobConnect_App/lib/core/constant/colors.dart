@@ -20,6 +20,8 @@ class UColors {
 
   static const Color success = Color(0xFFDCFCE7);
   static const Color green = Color(0xff00A63E);
+  static const Color lightestGray = Color(0xFFF3F4F6);
+  static const Color softBackground = Color(0xFFF9FAFB);
 
   static const Color warningSurfaceBackground = Color(0xFFFFFBEB);
   static const Color warningSurfaceBorder = Color(0xFFFEE685);
